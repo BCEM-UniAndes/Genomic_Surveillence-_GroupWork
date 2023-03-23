@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#This script for doing  de novo-assembly from a list of timmed fastq.gz
+
+function docker_run() { docker run --rm=True -u $(id -u):$(id -g) -v $(pwd):/data "$@" ;}
+wordir=/home/bioinfo-sanger/Data/Group_work/s.pneumo/s.pneumo/results_fastqc_gz/trimmed_results/results_trimmed_gz
+cd $wordir
+for i in $(ls *_1.trimmed.fastq.gz); do
+
+NAME=$(basename $i _1.trimmed.fastq.gz)
+echo "$NAME"
+j="${NAME}_1.trimmed.fastq.gz"
+echo "$j"
+k="${NAME}_2.trimmed.fastq.gz"
+echo "$k"
+docker_run staphb/spades spades.py -1 $j -2 $k -t 16 --careful --cov-cutoff auto -o ${NAME};
+done
