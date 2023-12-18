@@ -549,9 +549,3 @@ Phylogenetics is quite important, it is the study of evolutionary relationships 
     
     done
     ```
-    
-    - [ ]  Presentación miércoles
-    - [ ]  Presentación Jueves
-    - [ ]  Subir archivos al github
-    - [ ]  Traducir el notion a español
-    - [ ]  filogenias
